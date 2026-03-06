@@ -945,7 +945,7 @@
 
         <div class="space-y-6 text-lg md:text-xl leading-relaxed text-[#112547] text-justify sm:text-center">
             <p class="px-2 md:px-6">
-                Welcome to Thakur <span class="text-[#c3161c] font-semibold">PUBLIC</span> School, where education is a journey of discovery, integrity, and achievement. We are committed to nurturing confident learners, responsible citizens, and compassionate leaders prepared to thrive in an ever-evolving world.
+                Welcome to  <span class="text-[#c3161c] font-semibold">Thakur Public School,</span>  where education is a journey of discovery, integrity, and achievement. We are committed to nurturing confident learners, responsible citizens, and compassionate leaders prepared to thrive in an ever-evolving world.
             </p>
             
             <p class="px-2 md:px-6 opacity-90">
@@ -967,7 +967,7 @@
                 <span class="text-[#c3161c]">Mission</span>
             </h2>
             <div class="mt-8 mx-auto w-24 h-1.5 bg-[#112547] rounded-full relative overflow-hidden">
-                <div class="absolute right-0 top-0 w-8 h-full bg-[#00e7ff]"></div>
+                 <div class="my-10 mx-auto w-24 h-1.5 bg-[#112547] rounded-full shadow-[0_0_10px_#00e7ff33]"></div>
             </div>
         </div>
 
@@ -1348,10 +1348,123 @@
                 flex:1;
             }
         }
+
+        .mobile-enquire-btn {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .form-popup {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .form-popup.active {
+            transform: translateX(0);
+        }
+
+        .modal-popup {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .modal-popup.active {
+            opacity: 1;
+            transform: scale(1);
+        }
         </style>
 
       
         <!-- End Our Campus Section -->
+
+        <!-- Mobile Enquire Button (Sticky Left) -->
+        <button id="mobileEnquireBtn" class="md:hidden fixed left-0 top-1/2 -translate-y-1/2 bg-[#c3161c] text-white font-bold py-6 px-3 rounded-r-lg shadow-lg z-50 mobile-enquire-btn hover:bg-[#a01217] transition-colors">
+            ENQUIRE NOW
+        </button>
+
+        <!-- Mobile Form Popup -->
+        <div id="formPopup" class="md:hidden fixed inset-0 z-[60] hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300" id="formOverlay"></div>
+            <div class="modal-popup w-[90%] max-w-[380px] relative z-10">
+                <div class="bg-[#f8fbfd]/95 backdrop-blur-sm border-[2px] border-[#9dbcdf] rounded-2xl p-6 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)] relative">
+                    <button id="closeFormBtn" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl leading-none w-8 h-8 flex items-center justify-center">&times;</button>
+                    
+                    <h3 class="text-[20px] font-black text-black text-center leading-tight mb-1">
+                        ENQUIRE NOW<br>FOR 2026-27
+                    </h3>
+                    <p class="text-center text-black font-medium text-[14px] mb-5">Apply</p>
+
+                    <form action="#" method="POST" class="flex flex-col gap-3">
+                        <input type="text" name="name" placeholder="Name" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg text-[15px] focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-500 bg-white">
+
+                        <input type="email" name="email" placeholder="Email" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg text-[15px] focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 placeholder-gray-500 bg-white">
+
+                        <div class="relative">
+                            <select name="grade" required class="w-full px-4 py-3 border border-gray-300 rounded-lg text-[15px] focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 appearance-none bg-white text-gray-700 cursor-pointer">
+                                <option value="" disabled selected>Select Grade</option>
+                                <option value="play-group">Play Group</option>
+                                <option value="nursery">Nursery</option>
+                                <option value="jr-kg">Jr KG</option>
+                                <option value="sr-kg">Sr KG</option>
+                                <option value="grade-1">Grade 1</option>
+                                <option value="grade-2">Grade 2</option>
+                                <option value="grade-3">Grade 3</option>
+                                <option value="grade-4">Grade 4</option>
+                                <option value="grade-5">Grade 5</option>
+                                <option value="grade-6">Grade 6</option>
+                                <option value="grade-7">Grade 7</option>
+                                <option value="grade-8">Grade 8</option>
+                                <option value="grade-9">Grade 9</option>
+                                <option value="grade-10">Grade 10</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-[#c3161c] hover:bg-[#a01217] text-white font-bold text-[15px] py-3.5 rounded-lg mt-2 transition-colors duration-200 shadow-md hover:shadow-lg">
+                            SUBMIT ENQUIRY
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            (function() {
+                const btn = document.getElementById('mobileEnquireBtn');
+                const popup = document.getElementById('formPopup');
+                const overlay = document.getElementById('formOverlay');
+                const closeBtn = document.getElementById('closeFormBtn');
+                const modal = popup.querySelector('.modal-popup');
+
+                function openForm() {
+                    popup.classList.remove('hidden');
+                    setTimeout(() => {
+                        modal.classList.add('active');
+                    }, 10);
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeForm() {
+                    modal.classList.remove('active');
+                    setTimeout(() => {
+                        popup.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }, 300);
+                }
+
+                btn.addEventListener('click', openForm);
+                closeBtn.addEventListener('click', closeForm);
+                overlay.addEventListener('click', closeForm);
+            })();
+        </script>
 
         <div class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
@@ -1645,7 +1758,7 @@
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900">
                 Admission <span style="color: #c3161c;">Process</span>
             </h2>
-            <div class="mt-6 mx-auto w-24 h-1.5 rounded-full" style="background-color: #c3161c;"></div>
+           <div class="my-10 mx-auto w-24 h-1.5 bg-[#112547] rounded-full shadow-[0_0_10px_#00e7ff33]"></div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
