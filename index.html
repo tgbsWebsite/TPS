@@ -1158,13 +1158,7 @@
                     </p>
                 </div>
 
-                <div class="pt-4">
-                    <a href="#" class="inline-flex items-center gap-3 px-10 py-4 rounded-full text-white font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg" 
-                       style="background-color: #c3161c; box-shadow: 0 10px 20px -5px rgba(195, 22, 28, 0.4);">
-                        Enquire Now
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </a>
-                </div>
+                
             </div>
 
             <div class="lg:col-span-7">
@@ -1238,7 +1232,7 @@
         }
 
         .campus-item.intro-card{
-            flex:1;
+            flex:0 0 280px;
         }
 
         .campus-item img{
@@ -1252,19 +1246,11 @@
             transform:scale(1.1);
         }
 
-        .campus-gallery:hover .campus-item{
+        .campus-gallery:hover .campus-item:not(.intro-card){
             flex:0.5;
         }
 
-        .campus-gallery:hover .campus-item.intro-card{
-            flex:0.5;
-        }
-
-        .campus-gallery .campus-item:hover{
-            flex:2;
-        }
-
-        .campus-gallery .campus-item.intro-card:hover{
+        .campus-gallery .campus-item:not(.intro-card):hover{
             flex:2;
         }
 
