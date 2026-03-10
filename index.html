@@ -1367,6 +1367,62 @@
             opacity: 1;
             transform: scale(1);
         }
+
+        /* Mobile scroll animations for campus sections */
+        @media (max-width: 768px) {
+            .mobile-campus-container {
+                opacity: 0;
+                transform: translateY(50px);
+                transition: all 0.8s ease-out;
+            }
+            
+            .mobile-campus-container.animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .mobile-campus-item {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.6s ease-out;
+            }
+            
+            .mobile-campus-item.animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .mobile-campus-item:nth-child(1) { transition-delay: 0.1s; }
+            .mobile-campus-item:nth-child(2) { transition-delay: 0.2s; }
+            .mobile-campus-item:nth-child(3) { transition-delay: 0.3s; }
+            .mobile-campus-item:nth-child(4) { transition-delay: 0.4s; }
+            .mobile-campus-item:nth-child(5) { transition-delay: 0.5s; }
+            .mobile-campus-item:nth-child(6) { transition-delay: 0.6s; }
+            
+            .mobile-campus-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 20px;
+                background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.6), transparent);
+                color: white;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .mobile-campus-overlay h3 {
+                font-size: 18px;
+                margin-bottom: 8px;
+                font-weight: 600;
+            }
+            
+            .mobile-campus-overlay p {
+                font-size: 13px;
+                line-height: 1.5;
+                opacity: 0.9;
+            }
+        }
         </style>
 
       
@@ -1430,229 +1486,8 @@
             </div>
         </div>
 
-        <script>
-            (function() {
-                const btn = document.getElementById('mobileEnquireBtn');
-                const popup = document.getElementById('formPopup');
-                const overlay = document.getElementById('formOverlay');
-                const closeBtn = document.getElementById('closeFormBtn');
-                const modal = popup.querySelector('.modal-popup');
-
-                function openForm() {
-                    popup.classList.remove('hidden');
-                    setTimeout(() => {
-                        modal.classList.add('active');
-                    }, 10);
-                    document.body.style.overflow = 'hidden';
-                }
-
-                function closeForm() {
-                    modal.classList.remove('active');
-                    setTimeout(() => {
-                        popup.classList.add('hidden');
-                        document.body.style.overflow = '';
-                    }, 300);
-                }
-
-                btn.addEventListener('click', openForm);
-                closeBtn.addEventListener('click', closeForm);
-                overlay.addEventListener('click', closeForm);
-            })();
-        </script>
-
-        <div class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-
-
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    Our <span class="text-[#84cc16]">Recruiters</span>
-                </h2>
-
-                <div class="mt-4 flex justify-center">
-                    <div class="h-1.5 w-24 bg-[#112547] rounded-full"></div>
-                </div>
-
-                <p class="mt-6 max-w-4xl mx-auto text-base text-gray-600 text-justify">
-                    We are proud to partner with a wide range of leading companies who trust our talent.
-                </p>
-
-            </div>
-
-            <!-- MARQUEE SECTION -->
-            <div
-                class="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)] w-screen left-[calc(-50vw+50%)] border-y border-gray-200 bg-white py-6">
-
-                <div class="flex animate-scroll w-max">
-
-                    <!-- FIRST LOOP -->
-                    <div class="flex w-max items-center">
-                        <!-- LOGOS -->
-                        <!-- h-12 + mx-6 for spacing -->
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 3@1572x.webp"
-                            alt="Asset 3" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 4@1572x.webp"
-                            alt="Asset 4" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 6@1572x.webp"
-                            alt="Asset 6" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 5@1572x.webp"
-                            alt="Asset 5" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 7@1572x.webp"
-                            alt="Asset 7" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 8@1572x.webp"
-                            alt="Asset 8" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 9@1572x.webp"
-                            alt="Asset 9" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 10@1572x.webp"
-                            alt="Asset 10" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 11@1572x.webp"
-                            alt="Asset 11" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 12@1572x.webp"
-                            alt="Asset 12" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 13@1572x.webp"
-                            alt="Asset 13" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 14@1572x.webp"
-                            alt="Asset 14" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 15@1572x.webp"
-                            alt="Asset 15" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 16@1572x.webp"
-                            alt="Asset 16" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 17@1572x.webp"
-                            alt="Asset 17" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 18@1572x.webp"
-                            alt="Asset 18" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 19@1572x.webp"
-                            alt="Asset 19" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 20@1572x.webp"
-                            alt="Asset 20" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 21@1572x.webp"
-                            alt="Asset 21" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 22@1572x.webp"
-                            alt="Asset 22" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 23@1572x.webp"
-                            alt="Asset 23" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 24@1572x.webp"
-                            alt="Asset 24" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 25@1572x.webp"
-                            alt="Asset 25" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 26@1572x.webp"
-                            alt="Asset 26" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 27@1572x.webp"
-                            alt="Asset 27" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 28@1572x.webp"
-                            alt="Asset 28" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 29@1572x.webp"
-                            alt="Asset 29" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 30@1572x.webp"
-                            alt="Asset 30" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 31@1572x.webp"
-                            alt="Asset 31" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 32@1572x.webp"
-                            alt="Asset 32" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 33@1572x.webp"
-                            alt="Asset 33" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 34@1572x.webp"
-                            alt="Asset 34" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 35@1572x.webp"
-                            alt="Asset 35" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 36@1572x.webp"
-                            alt="Asset 36" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 37@1572x.webp"
-                            alt="Asset 37" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 38@1572x.webp"
-                            alt="Asset 38" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 39@1572x.webp"
-                            alt="Asset 39" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 40@1572x.webp"
-                            alt="Asset 40" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 41@1572x.webp"
-                            alt="Asset 41" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 42@1572x.webp"
-                            alt="Asset 42" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 43@1572x.webp"
-                            alt="Asset 43" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 44@1572x.webp"
-                            alt="Asset 44" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 45@1572x.webp"
-                            alt="Asset 45" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 46@1572x.webp"
-                            alt="Asset 46" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 47@1572x.webp"
-                            alt="Asset 47" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 48@1572x.webp"
-                            alt="Asset 48" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 49@1572x.webp"
-                            alt="Asset 49" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 50@1572x.webp"
-                            alt="Asset 50" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 51@1572x.webp"
-                            alt="Asset 51" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 52@1572x.webp"
-                            alt="Asset 52" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 53@1572x.webp"
-                            alt="Asset 53" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 54@1572x.webp"
-                            alt="Asset 54" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 55@1572x.webp"
-                            alt="Asset 55" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 56@1572x.webp"
-                            alt="Asset 56" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 57@1572x.webp"
-                            alt="Asset 57" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 58@1572x.webp"
-                            alt="Asset 58" />
-                        <img class="h-5 mx-6 object-contain" src="./Images/placements/Asset 59@1572x.webp"
-                            alt="Asset 59" />
-                    </div>
-                    <!-- SECOND LOOP -->
-                    <div aria-hidden="true" class="flex w-max items-center">
-                        <!-- duplicate set -->
-                        <!-- (KEEP EXACTLY AS YOU POSTED) -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ================= END MOBILE ================= -->
-
-
-        <!-- Styles for carousel items (put in your CSS file or inside <style>) -->
-        <style>
-            .carousel-item {
-                position: absolute;
-                inset: 0;
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                opacity: 0;
-                transition: opacity 700ms ease;
-                z-index: 0;
-            }
-
-            .carousel-item.active {
-                opacity: 1;
-                z-index: 0;
-            }
-
-            /* small helper so text remains readable on tiny screens */
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-
-                100% {
-                    transform: translateX(-50%);
-                }
-            }
-
-            .animate-scroll {
-                animation: scroll 80s linear infinite;
-                /* Delay the start of the animation by 3 seconds */
-                animation-delay: 3s;
-            }
-
-            .group:hover .animate-scroll {
-                animation-play-state: paused;
-            }
-        </style>
+     
+        
 
         <div class="bg-white py-12">
             <div class="container mx-auto max-w-[1350px] px-4 lg:px-8">
@@ -1661,18 +1496,16 @@
                         Our
                         <span class="text-[#c3161c]">Campus</span>
                     </h2>
-                    <div class="mt-8 mx-auto w-24 h-1.5 bg-[#112547] rounded-full relative overflow-hidden">
-                        <div class="my-10 mx-auto w-24 h-1.5 bg-[#112547] rounded-full shadow-[0_0_10px_#00e7ff33]"></div>
-                    </div>
+                    <div class="my-6 mx-auto w-24 h-1.5 bg-[#112547] rounded-full shadow-[0_0_10px_#00e7ff33]"></div>
                 </div>
             </div>
         </div>
 
-         <div class="max-w-[1400px] mx-auto px-4">
+          <div class="max-w-[1400px] mx-auto px-4">
             <div class="campus-gallery">
-                <div class="campus-item intro-card">
-                    <h2>Facilities</h2>
-                    <p>Thakur Public School offers a safe, inspiring and well-equipped campus designed to foster academic and personal growth.</p>
+                <div class="campus-item intro-card" style="background-color: #dde7ed;">
+                    <h2 style="color: #112547; font-size: 52px;">Facilities</h2>
+                    <p style="color: #112547;font-size: 20px;">Thakur Public School offers a safe, inspiring and well-equipped campus designed to foster academic and personal growth.</p>
                     
                    
                 </div>
@@ -1758,11 +1591,11 @@
                 </div>
             </div>
         </div>
-          <div class="max-w-[1400px] mx-auto px-4 py-12">
+         <div class="max-w-[1400px] mx-auto px-4 mb-16 mt-12">
             <div class="campus-gallery">
-                <div class="campus-item intro-card" style="background-color: #dde7ed;">
-                    <h2 style="color: #112547; font-size: 52px;">Co-Curricular Activity</h2>
-                    <p style="color: #112547;">Thakur Public School offers a safe, inspiring and well-equipped campus designed to foster academic and personal growth.</p>
+                <div class="campus-item intro-card">
+                    <h2 style="color: #dde7ed; font-size: 50px;">Co-Curricular Activity</h2>
+                    <p style="color: #dde7ed;font-size: 20px;">Thakur Public School offers a safe, inspiring and well-equipped campus designed to foster academic and personal growth.</p>
                     
                    
                 </div>
