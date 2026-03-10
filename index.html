@@ -1486,7 +1486,36 @@
             </div>
         </div>
 
-     
+        <script>
+            (function() {
+                const btn = document.getElementById('mobileEnquireBtn');
+                const popup = document.getElementById('formPopup');
+                const overlay = document.getElementById('formOverlay');
+                const closeBtn = document.getElementById('closeFormBtn');
+                const modal = popup.querySelector('.modal-popup');
+
+                function openForm() {
+                    popup.classList.remove('hidden');
+                    setTimeout(() => {
+                        modal.classList.add('active');
+                    }, 10);
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeForm() {
+                    modal.classList.remove('active');
+                    setTimeout(() => {
+                        popup.classList.add('hidden');
+                        document.body.style.overflow = '';
+                    }, 300);
+                }
+
+                btn.addEventListener('click', openForm);
+                closeBtn.addEventListener('click', closeForm);
+                overlay.addEventListener('click', closeForm);
+            })();
+        </script>
+
         
 
         <div class="bg-white py-12">
